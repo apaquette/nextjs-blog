@@ -1,6 +1,16 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
+import { getSortedPostsData } from '../lib/posts';
+
+export async function getStaticProps(){
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData
+    },
+  };
+}
 
 export default function Home() {
   return (
@@ -11,7 +21,7 @@ export default function Home() {
       <section className={utilStyles.headingMd}>
         <p>
         As a software engineer, I bring a diverse skill set honed through my Bachelor's degree in Software Development. My expertise spans Secure App Development, Machine Learning, Neural Networks, and proficiency in Agile Development and DevOps practices. While my previous role involved C# and .NET, I also enjoy using them in personal projects.
-<br/><br/>
+        <br/><br/>
         My goal is to secure a challenging software engineering role where I can apply my skills, learn from experienced colleagues, and contribute to cutting-edge solutions. I'm open to exploring opportunities that align with my passion for technology and continuous growth.
         <br/><br/>
         During my studies at SETU, I had the privilege of working on diverse projects, including the implementation of mitigations to common vulnerabilities in web applications, and developing a simple Java application by following the Test-Driven Development process. This experience has shaped my problem-solving abilities and instilled a strong work ethic.
